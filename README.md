@@ -10,7 +10,7 @@ App is very WIP but demonstrates using the following technologies:
 - passport (for oauth 2.0 strategies) 
 - and soon hopefully redis.
 
-Atlassian 3LO is used for the login process, and at a later date I will inplement Jira.JS in conjunction with react-resource-router
+Atlassian 3LO is used for the login process, and at a later date I will implement Jira.JS in conjunction with react-resource-router
 
 # How to use
 - Frontend: Use NPM as Parcel V2 currently has problems with Yarn
