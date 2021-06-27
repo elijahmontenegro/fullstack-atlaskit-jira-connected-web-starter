@@ -1,0 +1,27 @@
+type GeoPoint {
+  id: ID!
+  lat: Float!
+  lng: Float!
+}
+
+type Contact {
+  id: ID!
+  phone: String
+  address: String
+  email: String
+  geopoint: GeoPoint
+}
+
+type Configuration {
+  key: String!
+  value: String!
+}
+
+type User {
+  id: ID!
+  displayName: String!
+  email: String!
+  photo: String!
+  createdAt: Date!
+  updatedAt: Date!
+}

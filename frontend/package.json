@@ -1,0 +1,80 @@
+{
+  "name": "graphql-sequelize-frontend-oauth",
+  "version": "0.0.3",
+  "author": "elijahmontenegro",
+  "homepage": "",
+  "license": "ISC",
+  "private": true,
+  "keywords": [
+    "parcel-bundler",
+    "parcel",
+    "postgres",
+    "postgresql",
+    "sequelize",
+    "graphql",
+    "apollo",
+    "oauth2",
+    "oauth 2",
+    "atlassian",
+    "passport"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "parcel serve public/index.html --port 3000",
+    "build": "parcel build public/index.html",
+    "lint": "eslint --ext js,jsx --fix src"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      "> 0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@apollo/client": "^3.3.20",
+    "@apollo/react-hooks": "^4.0.0",
+    "@atlaskit/router": "^0.13.5",
+    "graphql": "^15.5.1",
+    "graphql-tag": "^2.12.5",
+    "js-cookie": "^2.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "parcel": "^2.0.0-beta.3.1",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-resource-router": "^0.17.1",
+    "styled-components": "^5.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/eslint-parser": "^7.14.4",
+    "@babel/preset-env": "^7.14.4",
+    "@babel/preset-react": "^7.13.13",
+    "@parcel/packager-raw-url": "^2.0.0-beta.3.1",
+    "@parcel/transformer-webmanifest": "^2.0.0-beta.3.1",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "eslint": "^7.27.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.0.2",
+    "parcel": "^2.0.0-beta.3.1",
+    "prettier": "^2.3.0"
+  }
+}

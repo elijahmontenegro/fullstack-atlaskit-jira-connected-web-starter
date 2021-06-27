@@ -1,0 +1,18 @@
+{
+  "name": "fullstack-teritorryy-social-app",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Fullstack GraphQL: Node + React + GraphQL + PostgreSQL",
+  "repository": "https://github.com/elijahmontenegro/fullstack-teritorryy-social-app",
+  "author": "Elijah Montenegro <ejmonte@outlook.com>",
+  "license": "MIT",
+  "scripts": {
+    "backend:lint": "cd backend && yarn lint",
+    "frontend:lint": "cd frontend && yarn lint",
+    "lint": "yarn backend:lint && yarn frontend:lint"
+  },
+  "workspaces": [
+    "backend",
+    "frontend"
+  ]
+}

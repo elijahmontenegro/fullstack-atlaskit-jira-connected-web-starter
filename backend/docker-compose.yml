@@ -1,0 +1,63 @@
+version: '3.5'
+
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    environment:
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-TacoCatSpy!}
+      POSTGRES_DB: ${DB_DATABASE:-database}
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    networks:
+      - postgres
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    restart: always
+    ports:
+      - "${PGADMIN_PORT:-8080}:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${DB_DEFAULT_EMAIL:-admin@admin.com}
+      PGADMIN_DEFAULT_PASSWORD: ${DB_PASSWORD:-password}
+    volumes:
+      - pgadmin:/root/.pgadmin
+    networks:
+      - postgres
+    depends_on:
+      - postgres
+
+
+  redis:
+    image: redis
+    restart: always
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    networks:
+      - redis
+
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    restart: always
+    ports:
+      - "${REDIS_COMMANDER_PORT:-8081}:8081"
+    environment:
+      REDIS_HOSTS: local:redis:${REDIS_PORT}
+    networks:
+      - redis
+    depends_on:
+      - redis
+
+networks:
+  postgres:
+    driver: bridge
+  redis:
+    driver: bridge
+
+volumes:
+  postgres:
+  pgadmin:
