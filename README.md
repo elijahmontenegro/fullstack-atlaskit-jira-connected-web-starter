@@ -2,13 +2,13 @@
 I'm learning still; this is basically going to be my starter app for these technologies and hopefully it can help others.
 
 App is very WIP but demonstrates using the following technologies: 
-sequelize, 
-postgres, 
-parcel (V2), 
-graphql, 
-apollo, 
-passport (for oauth 2.0 strategies) 
-and soon hopefully redis.
+-sequelize, 
+-postgres, 
+-parcel (V2), 
+-graphql, 
+-apollo, 
+-passport (for oauth 2.0 strategies) 
+-and soon hopefully redis.
 
 Atlassian 3LO is used for the login process, and at a later date I will inplement Jira.JS in conjunction with react-resource-router
 
