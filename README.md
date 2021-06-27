@@ -5,7 +5,7 @@ App is very WIP but demonstrates using the following technologies: sequelize, po
 # How to use
 - Frontend: Use NPM as Parcel V2 currently has problems with Yarn
 - Backend: npm run dev
--- Edit docker-compose.yml to have your own postgres db name and password
+- - Edit docker-compose.yml to have your own postgres db name and password
 
 ## Set up the databases
 
