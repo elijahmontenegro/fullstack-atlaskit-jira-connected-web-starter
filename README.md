@@ -1,5 +1,5 @@
-# Shtick Full-stack web app
-Production is not ready
+# Full-stack web app 
+I'm learning still.
 App is very WIP but demonstrates using the following technologies: sequelize, postgres, parcel, graphql, apollo, passport (for oauth 2.0 strategies) and soon hopefully redis
 
 # How to use
