@@ -15,6 +15,7 @@ Atlassian 3LO is used for the login process, and at a later date I will inplemen
 # How to use
 - Frontend: Use NPM as Parcel V2 currently has problems with Yarn
 - Backend: 
+ Take a look at the .env.sample provided. An Atlassian account is required.
  Edit docker-compose.yml to have your own postgres db name and password
  
  npm run dev
