@@ -9,9 +9,8 @@ export const routes = [
     name: 'Home',
     path: '/home',
     exact: true,
-    component: withSessionContext(Home),
-    // component: Home,
-    // resources: [homeResource],
+    component: Home,
+    resources: [homeResource],
     navigation: false,
   },
   {

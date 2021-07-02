@@ -8,6 +8,10 @@ module.exports = new AtlassianStrategy({
   callbackURL: config.callbackURL,
   scope: config.scope,
 }, async (accessToken, refreshToken, profile, cb) => {
+
+  // include the Jira cloud Id along with the other user data
+  const cloudID = config.cloudID;
+
   const user = {
     id: profile.id,
     displayName: profile.displayName,
@@ -21,9 +25,9 @@ module.exports = new AtlassianStrategy({
     defaults: user
   })
   .then(res => {
-    return cb(null, Object.assign({}, user, { accessToken, refreshToken }));
+    return cb(null, Object.assign({}, user, { accessToken, refreshToken, cloudID }));
   })
   .catch(err => {
-    return cb(err, Object.assign({}, user, { accessToken, refreshToken }));
+    return cb(err, Object.assign({}, user, { accessToken, refreshToken, cloudID }));
   })
 });

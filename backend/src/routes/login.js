@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
   res.cookie('jwt', token); // think about setting an experiation for the cookie to match with the JWT experation
 
   jwt.verify(token, config.secret, (err, decoded) => {
-    console.log('token verification:', err, decoded);
+    // console.log('token verification:', err, decoded);
   });
 
   // res.send(req.user)

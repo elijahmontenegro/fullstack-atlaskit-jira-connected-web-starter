@@ -6,6 +6,7 @@ const models = require('./models');
 const redis = require('./redis');
 const context = require('./context');
 const passport = require('passport');
+const refresh = require('passport-oauth2-refresh');
 const { logging, permissions, authenticator } = require('./middlewares');
 const AtlassianStrategy = require('./services/atlassian');
 const routes = require('./routes');
@@ -25,6 +26,7 @@ passport.deserializeUser((obj, cb) => cb(null, obj));
 
 // initialize passport
 passport.use(AtlassianStrategy);
+refresh.use(AtlassianStrategy);
 server.express.use(passport.initialize());
 server.express.use(passport.session());
 

@@ -13,7 +13,6 @@ module.exports = {
     user: resolver(models.User),
     me: resolver(models.User, {
       before(findOptions, args, ctx) {
-        console.log(ctx.user.id)
         findOptions.where = {
           id: ctx.user.id,
         };

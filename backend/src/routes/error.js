@@ -2,5 +2,5 @@
 module.exports = (req, res) => {
   const error = 'Something went wrong.';
 
-  res.send(`[OAUTH] Error: ${error}`);
+  res.send(`[AUTH] Error: ${error}`);
 };

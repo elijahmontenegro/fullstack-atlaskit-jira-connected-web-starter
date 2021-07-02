@@ -41,6 +41,7 @@
     "jsonwebtoken": "^8.5.1",
     "passport": "^0.4.1",
     "passport-atlassian-oauth2": "^2.1.0",
+    "passport-oauth2-refresh": "^2.0.2",
     "pg": "^8.6.0",
     "pg-hstore": "^2.3.4",
     "redis": "^3.1.2",
