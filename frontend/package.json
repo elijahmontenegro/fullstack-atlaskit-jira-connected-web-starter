@@ -49,9 +49,11 @@
   "dependencies": {
     "@apollo/client": "^3.3.20",
     "@apollo/react-hooks": "^4.0.0",
+    "@atlaskit/atlassian-navigation": "^1.0.0",
+    "@atlaskit/page-layout": "^1.0.3",
     "@atlaskit/router": "^0.13.5",
+    "@atlaskit/theme": "^11.3.0",
     "graphql": "^15.5.1",
-    "graphql-tag": "^2.12.5",
     "jira.js": "^2.0.6",
     "js-cookie": "^2.2.1",
     "react": "^16.8.0",

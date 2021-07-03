@@ -3,5 +3,5 @@
 // thus it's exclusivly for REST API fetching
 // most of everything here will be used for big data fetching
 // i.e: Jira.JS fetching hundreds of issues on pages
-export { homeResource } from './home.resource';
-// export { homeResource } from './home.resource';
+
+export { feedResource } from './feed.resource';

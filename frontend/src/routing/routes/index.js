@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-resource-router';
-import { Home, Login } from '../components';
-import { homeResource } from '../resources';
+import { Home, Feed, Login } from '../components';
+import { feedResource } from '../resources';
 import { withSessionContext } from '../../contexts';
 
 export const routes = [
@@ -9,22 +9,24 @@ export const routes = [
     name: 'Home',
     path: '/home',
     exact: true,
-    component: Home,
-    resources: [homeResource],
-    navigation: false,
+    component: Home
+  },
+  {
+    name: 'Feed',
+    path: '/feed',
+    exact: true,
+    component: Feed,
+    resources: [feedResource],
   },
   {
     name: 'Login',
     path: '/login',
     exact: true,
     component: Login,
-    // resources: [homeResource],
-    navigation: false,
   },
   {
     name: 'Default',
     path: '*',
     component: () => <Redirect to="/home" />,
-    navigation: false,
   },
 ];
