@@ -1,5 +1,5 @@
 # Insert Cool Starter App Name Here
-Starter Application (Very much a WIP).
+Starter Application
 * **Backend** built with Node + Express + GraphQL (graphql-yoga/graphql-shield) + Sequelize (PostgreSQL). 
   - Users are created using OAuth 2.0 (3LO) using Passport.js w/ Atlassian.
   - Database (PostgreSQL and Redis) run on Docker.
