@@ -1,5 +1,5 @@
 # Full Stack Jira Connected GraphQL App
-WIP starter Application
+WIP Starter Application
 * **Backend** built with Node + Express + GraphQL (graphql-yoga/graphql-shield) + Sequelize (PostgreSQL). 
   - Users are created using OAuth 2.0 (3LO) using Passport.js w/ Atlassian.
   - Database (PostgreSQL and Redis) run on Docker.
