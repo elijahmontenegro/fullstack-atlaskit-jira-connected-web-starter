@@ -45,3 +45,8 @@ Parcel v2 has some problems with Yarn so you would be advised to use NPM.
 
 #### Launching the Frontend Server
 1. `npm run dev`
+
+## 📜 License
+Copyright (c) 2021 Elijah Montenegro
+
+MIT License
