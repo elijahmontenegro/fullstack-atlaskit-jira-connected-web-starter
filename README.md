@@ -5,7 +5,7 @@ Starter Application (Very much a WIP).
 -- Database (PostgreSQL and Redis) run on Docker.
 - **Frontend** built with React + React Context + React Apollo + Atlaskit (Atlassian's official UI library) + React Resource Router.
 
-Written in Javascript + ES6 using Babel + Parcel.js (v2).
+Written in Javascript ES6 using Babel + Parcel.js (v2).
 
 ##  📝 Features
 **Authentication/Sessions**
