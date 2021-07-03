@@ -1,14 +1,17 @@
 # Insert Cool Starter App Name Here
 Starter Application (Very much a WIP).
-- **Backend** built with Node + Express + GraphQL + Sequelize (Postgres). Users are created using OAuth 2.0 (3LO) using Passport.js w/ Atlassian.
-- **Frontend** built with React (Javascript) + Atlaskit (Atlassian's official UI library) + React Resource Router.
+- **Backend** built with Node + Express + GraphQL (graphql-yoga) + Sequelize (PostgreSQL). 
+-- Users are created using OAuth 2.0 (3LO) using Passport.js w/ Atlassian.
+-- Database (PostgreSQL and Redis) run on Docker.
+- **Frontend** built with React + React Context + React Apollo + Atlaskit (Atlassian's official UI library) + React Resource Router.
 
-Written in ES6 using Babel + Parcel.js (v2).
+Written in Javascript ES6 using Babel + Parcel.js (v2).
 
 ##  📝 Features
 **Authentication/Sessions**
 - [x] Log in/create users with Atlassian account
 - [ ] Automatically refresh Atlassian's API token
+- [ ] Retrieve user using Redis
 
 **Jira Buckets** 
 - [ ] List Jira buckets
