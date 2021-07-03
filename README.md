@@ -11,7 +11,7 @@ Written in Javascript ES6 using Babel + Parcel.js (v2).
 **Authentication/Sessions**
 - [x] Log in/create users with Atlassian account
 - [ ] Automatically refresh Atlassian's API token
-- [ ] Retrieve user using Redis
+- [ ] Retrieve user using Redis (not sure how to do this yet)
 
 **Jira Buckets** 
 - [ ] List Jira buckets
