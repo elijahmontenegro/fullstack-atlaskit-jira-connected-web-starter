@@ -1,5 +1,5 @@
 # Insert Cool Starter App Name Here
-Starter Application (Very much a WIP)
+Starter Application (Very much a WIP).
 **Backend** built with Node + Express + GraphQL + Sequelize (Postgres). Users are created using OAuth 2.0 (3LO) using Passport.js w/ Atlassian.
 **Frontend** built with React (Javascript) + Atlaskit (Atlassian's official UI library) + React Resource Router.
 
