@@ -1,5 +1,5 @@
 # Insert Cool Starter App Name Here
-WIP Starter Application
+This is my WIP Starter Application where create a Jira connected GraphQL app.
 * **Backend** built with Node + Express + GraphQL (graphql-yoga/graphql-shield) + Sequelize (PostgreSQL). 
   - Users are created using OAuth 2.0 (3LO) using Passport.js w/ Atlassian.
   - Database (PostgreSQL and Redis) run on Docker.
