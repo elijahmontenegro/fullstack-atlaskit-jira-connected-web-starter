@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
 
   // res.send(req.user)
   // res.redirect('/profile-page');
-  res.redirect('http://localhost:3000/ ');
+  res.redirect('http://localhost:3000/');
 };
 
 // res.cookie sends a cookie to the frontend once res.redirect is called

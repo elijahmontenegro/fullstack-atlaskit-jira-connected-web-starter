@@ -2,6 +2,7 @@ import React from 'react';
 import { AtlassianNavigation, PrimaryButton, Settings } from '@atlaskit/atlassian-navigation';
 import { appTheme } from '../../configs';
 import ProductLogo from './ProductLogo';
+import Profile from './Profile';
 
 const TopNavigationBar = (props) => {
   
@@ -10,6 +11,7 @@ const TopNavigationBar = (props) => {
       <AtlassianNavigation
         theme={appTheme}
         renderProductHome={ProductLogo}
+        renderProfile={Profile}
       />
     </>
   )

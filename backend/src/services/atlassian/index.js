@@ -28,6 +28,8 @@ module.exports = new AtlassianStrategy({
     return cb(null, Object.assign({}, user, { accessToken, refreshToken, cloudID }));
   })
   .catch(err => {
+    // maybe redirect to client if error?
+
     return cb(err, Object.assign({}, user, { accessToken, refreshToken, cloudID }));
   })
 });

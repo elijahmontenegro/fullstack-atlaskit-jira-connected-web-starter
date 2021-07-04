@@ -25,17 +25,15 @@ const PageContent = styled.div`
 export function Home(props) {
   return (
     <Main>
-      <PageContent>
-        <h2>Welcome to the landing page!</h2>
-        <ul>
-          <li>
-            <Link href="/feed" children="Go to feed (requires log in)" />
-          </li>
-          <li>
-            <Link href="/login" children="Go to log in" />
-          </li>
-        </ul>
-      </PageContent>
+      <h2>Welcome to the landing page!</h2>
+      <ul>
+        <li>
+          <Link href="/feed" children="Go to feed (requires log in)" />
+        </li>
+        <li>
+          <Link href="/login" children="Go to log in" />
+        </li>
+      </ul>
     </Main>
   );
 

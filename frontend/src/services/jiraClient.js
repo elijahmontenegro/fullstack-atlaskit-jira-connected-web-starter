@@ -1,6 +1,7 @@
 import { Version2Client }  from 'jira.js';
 import Cookies from 'js-cookie';
 import jwt_decode from "jwt-decode";
+const token = Cookies.get('jwt');
 
 class JiraClient extends Version2Client {
   constructor(props) {
@@ -8,7 +9,6 @@ class JiraClient extends Version2Client {
       throw new Error("[JiraClient] Singleton classes can't be instantiated more than once.")
     }
 
-    const token = Cookies.get('jwt');
     const { 
       cloudID, 
       accessToken
@@ -30,4 +30,4 @@ class JiraClient extends Version2Client {
 };
 
 
-export default new JiraClient();
+export default token ? new JiraClient() : null;
