@@ -47,7 +47,7 @@ const Profile = (props) => {
         content={() => (
           <PopupMenuGroup minWidth={240} maxWidth={240}>
             <Section title={user.displayName}>
-              <ButtonItem>Profile</ButtonItem>
+              <LinkItem href="/profile">Profile</LinkItem>
               <LinkItem iconAfter={<ShortcutIcon size="small" primaryColor={colors.N100}/>} onClick={() => window.open('https://id.atlassian.com/manage-profile', '_blank')}>Account settings</LinkItem>
             </Section>
             <Section hasSeparator>

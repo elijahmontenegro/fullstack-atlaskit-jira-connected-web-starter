@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-resource-router';
-import { Home, Feed, Login } from '../components';
-import { feedResource } from '../resources';
+import { Home, Profile } from '../components';
+import { profileResource } from '../resources';
 
 export const routes = [
   {
@@ -12,11 +12,11 @@ export const routes = [
     navigation: true //implement in component by props
   },
   {
-    name: 'Feed',
-    path: '/feed',
+    name: 'Profile',
+    path: '/profile',
     exact: true,
-    component: Feed,
-    resources: [feedResource],
+    component: Profile,
+    resources: [profileResource],
   },
   {
     name: 'Default',

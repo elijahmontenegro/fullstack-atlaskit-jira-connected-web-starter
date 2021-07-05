@@ -22,7 +22,7 @@ const PageContent = styled.div`
   ${props => props.hidden && 'display: none;'}
 `;
 
-export function Home(props) {
+export const Home = (props) => {
   return (
     <Main>
       <h2>Welcome to the landing page!</h2>
@@ -36,6 +36,5 @@ export function Home(props) {
       </ul>
     </Main>
   );
-
 };
 

@@ -4,4 +4,4 @@
 // most of everything here will be used for big data fetching
 // i.e: Jira.JS fetching hundreds of issues on pages
 
-export { feedResource } from './feed.resource';
+export { profileResource } from './profile.resource';

@@ -29,7 +29,6 @@ const CommonLayer = ({
   )
 };
 
-
 const mapStateToProps = state => ({
   isRedirecting: state.navigation.isRedirecting,
   message: state.navigation.message
