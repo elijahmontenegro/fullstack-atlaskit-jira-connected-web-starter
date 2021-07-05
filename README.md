@@ -41,7 +41,7 @@ If you don't already have a Atlassian Jira platform setup you can get started he
 
 
 ### Frontend
-Parcel v2 has some problems with Yarn so you would be advised to use NPM.
+Parcel v2 is in beta and has some problems with Yarn so you would be advised to use NPM.
 
 #### Launching the Frontend Server
 1. `npm run dev`
