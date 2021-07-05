@@ -18,7 +18,7 @@ module.exports = ({ request, ...rest }) => {
   };
 
   const authorization = request && request.get('Authorization');
-  console.log(rest)
+
   if (authorization && authorization.startsWith('Bearer ')) {
     const token = authorization.replace('Bearer ', '');
 
