@@ -1,5 +1,4 @@
 module.exports = (req, res) => {
-  req.logout();
   res.clearCookie('jwt');
-  res.json({ success: true });
+  res.redirect(process.env.APP_CLIENT_URL);
 };

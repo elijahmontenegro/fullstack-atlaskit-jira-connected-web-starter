@@ -10,6 +10,10 @@ import Cookies from 'js-cookie';
 
 class ServiceClient extends ApolloClient {
   constructor(props) {
+    if (ServiceClient._instance) {
+      throw new Error("[ServiceClient] Singleton classes can't be instantiated more than once.")
+    }
+
     const httpLink = HttpLink({
       uri: 'http://localhost:4000',
     });
@@ -55,9 +59,9 @@ class ServiceClient extends ApolloClient {
     };
 
     super(Object.assign({}, options, props));
+
+    ServiceClient._instance = this;
   }
 };
 
-export const createServiceClient = options => {
-  return new ServiceClient(options);
-};
+export default new ServiceClient();

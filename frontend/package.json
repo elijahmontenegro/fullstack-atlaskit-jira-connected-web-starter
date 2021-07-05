@@ -65,7 +65,10 @@
     "js-cookie": "^2.2.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
+    "react-redux": "^7.2.4",
     "react-resource-router": "^0.17.1",
+    "redux": "^4.1.0",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^5.3.0"
   },
   "devDependencies": {

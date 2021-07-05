@@ -11,13 +11,11 @@ module.exports = async (req, res) => {
 
   res.cookie('jwt', token); // think about setting an experiation for the cookie to match with the JWT experation
 
-  jwt.verify(token, config.secret, (err, decoded) => {
-    // console.log('token verification:', err, decoded);
-  });
+  // jwt.verify(token, config.secret, (err, decoded) => {
+  //   // console.log('token verification:', err, decoded);
+  // });
 
-  // res.send(req.user)
-  // res.redirect('/profile-page');
-  res.redirect('http://localhost:3000/');
+  res.redirect(process.env.APP_CLIENT_URL);
 };
 
 // res.cookie sends a cookie to the frontend once res.redirect is called

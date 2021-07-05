@@ -2,7 +2,7 @@ import React from 'react';
 import { PageLayout, TopNavigation, Content } from '@atlaskit/page-layout';
 import TopNavigationBar from './TopNavigationBar';
 
-export const NavigationLayer = ({
+const NavigationLayer = ({
   children: routeComponent
 }) => {
   
@@ -17,3 +17,6 @@ export const NavigationLayer = ({
     </PageLayout>
   )
 };
+
+
+export default NavigationLayer;

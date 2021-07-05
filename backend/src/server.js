@@ -8,7 +8,7 @@ const context = require('./context');
 const passport = require('passport');
 const refresh = require('passport-oauth2-refresh');
 const { logging, permissions, authenticator } = require('./middlewares');
-const AtlassianStrategy = require('./services/atlassian');
+const { AtlassianStrategy } = require('./services/atlassian');
 const routes = require('./routes');
 
 const server = new GraphQLServer({
@@ -33,6 +33,7 @@ server.express.use(passport.session());
 // custom routes
 server.express.get('/auth/connect', authenticator.atlassian.redirect, () => {});
 server.express.get('/auth/callback', authenticator.atlassian.base, routes.login);
+server.express.get('/auth/logout', routes.logout);
 server.express.get('/error', routes.error);
 
 module.exports = async () => {

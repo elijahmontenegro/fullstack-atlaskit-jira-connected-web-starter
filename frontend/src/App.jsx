@@ -1,9 +1,7 @@
 import React from 'react';
-import { createServiceClient } from './services';
+import client from './services/apolloClient';
 import { ApolloProvider } from '@apollo/react-hooks';
 import Router from './routing';
-
-const client = createServiceClient();
 
 const App = () => {
   return (

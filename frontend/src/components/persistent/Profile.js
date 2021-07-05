@@ -4,12 +4,11 @@ import { ButtonItem, LinkItem, PopupMenuGroup, Section } from '@atlaskit/menu';
 import { Profile as ProfileButton, SignIn } from '@atlaskit/atlassian-navigation';
 import styled from 'styled-components';
 import { useQuery } from '@apollo/react-hooks';
-import { userProfile } from '../../queries/user';
-import { logout } from '../../services/user';
-import Spinner from '@atlaskit/spinner';
-import Modal, { ModalTransition } from '@atlaskit/modal-dialog';
+import { userProfile } from '../../graphql/queries/user';
 import { colors } from '@atlaskit/theme';
 import ShortcutIcon from '@atlaskit/icon/glyph/shortcut';
+import { connect } from 'react-redux';
+import LoginButton from './LoginButton';
 
 const ProfileIcon = styled.img`
   border-radius: 100%;
@@ -17,43 +16,7 @@ const ProfileIcon = styled.img`
   width: 24px;
 `;
 
-
-const LoginButton = (props) => {
-  const [redirecting, setRedirecting] = useState(false);
-
-  const handleClick = () => {
-    setRedirecting(true);
-  };
-
-  return (
-    <>
-      <SignIn 
-        href={process.env.AUTH_URL}
-        onClick={handleClick}
-        isSelected={redirecting}
-        tooltip="Log in"
-      />
-
-      {redirecting && (
-        <ModalTransition>
-          <Modal
-            width="small"
-            heading={(
-              <div style={{display: 'flex', alignItems: 'center', flexDirection: 'row'}}>
-                <Spinner size="large" /> 
-                <span style={{ marginLeft: 20 }}/>
-                Processing…
-              </div>
-            )}
-          >
-          </Modal>
-        </ModalTransition>
-      )}
-    </>
-  )
-};
-
-export default Profile = (props) => {
+const Profile = (props) => {
   const [active, setActive] = useState(false);
   const { data, loading, error } = useQuery(userProfile);
 
@@ -61,6 +24,10 @@ export default Profile = (props) => {
   if (error) return <LoginButton />;
 
   const { me: user } = data;
+  
+  const handleLogout = () => {
+    props.logout()
+  };
 
   return (
     <>
@@ -81,10 +48,10 @@ export default Profile = (props) => {
           <PopupMenuGroup minWidth={240} maxWidth={240}>
             <Section title={user.displayName}>
               <ButtonItem>Profile</ButtonItem>
-              <LinkItem iconAfter={<ShortcutIcon size="small" primaryColor={colors.N100}/>} href="https://id.atlassian.com/manage-profile">Account settings</LinkItem>
+              <LinkItem iconAfter={<ShortcutIcon size="small" primaryColor={colors.N100}/>} onClick={() => window.open('https://id.atlassian.com/manage-profile', '_blank')}>Account settings</LinkItem>
             </Section>
             <Section hasSeparator>
-              <ButtonItem onClick={logout}>Logout</ButtonItem>
+              <LinkItem onClick={handleLogout}>Logout</LinkItem>
             </Section>
           </PopupMenuGroup>
         )}
@@ -92,3 +59,11 @@ export default Profile = (props) => {
     </>
   )
 };
+
+const mapDispatchToProps = (dispatch) => ({
+  logout: () => {
+    dispatch({ type: 'REDIRECT_TO_LOGOUT' });
+  }
+});
+
+export default connect(null, mapDispatchToProps)(Profile);
