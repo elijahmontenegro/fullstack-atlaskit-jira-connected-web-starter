@@ -5,6 +5,8 @@ import { useResource, Link } from 'react-resource-router';
 import { gql, useQuery } from '@apollo/react-hooks';
 import { LeftSidebarWithoutResize, Main } from '@atlaskit/page-layout';
 import styled from 'styled-components';
+import { Container } from '../../components/common';
+import PageHeader from '@atlaskit/page-header';
 
 const PageContent = styled.div`
   align-items: flex-start;
@@ -25,15 +27,10 @@ const PageContent = styled.div`
 export const Home = (props) => {
   return (
     <Main>
-      <h2>Welcome to the landing page!</h2>
-      <ul>
-        <li>
-          <Link href="/feed" children="Go to feed (requires log in)" />
-        </li>
-        <li>
-          <Link href="/login" children="Go to log in" />
-        </li>
-      </ul>
+      <Container>
+        <PageHeader>Hello World</PageHeader>
+        This is your public landing page.
+      </Container>
     </Main>
   );
 };
