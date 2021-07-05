@@ -50,3 +50,6 @@ Parcel v2 has some problems with Yarn so you would be advised to use NPM.
 Copyright (c) 2021 Elijah Montenegro
 
 MIT License
+
+## 📩 Feedback
+If you liked this, let me know by giving it a star! ⭐🤩
