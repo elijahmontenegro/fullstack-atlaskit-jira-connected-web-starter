@@ -3,7 +3,7 @@ WIP Starter Application
 * **Backend** built with Node + Express + GraphQL (graphql-yoga/graphql-shield) + Sequelize (PostgreSQL). 
   - Users are created using OAuth 2.0 (3LO) with help of Passport.js w/ Atlassian.
   - Database (PostgreSQL and Redis) run on Docker.
-* **Frontend** built with React + Redux + React Apollo + Atlaskit (Atlassian's official UI library) + React Resource Router (Atlassian's 'fetch as you render' Router.
+* **Frontend** built with React + Redux + React Apollo + Atlaskit (Atlassian's official UI library) + React Resource Router (A 'fetch as you render' Router created by Atlassian).
 
 Written in Javascript ES6 using Babel + Parcel.js (v2).
 
