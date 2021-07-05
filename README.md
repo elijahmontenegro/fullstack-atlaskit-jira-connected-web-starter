@@ -10,7 +10,7 @@ Written in Javascript ES6 using Babel + Parcel.js (v2).
 ##  📝 Features
 **Authentication/Sessions**
 - [x] Log in/create users with Atlassian account
-- [ ] Automatically refresh Atlassian's API token
+- [x] Automatically refresh Atlassian's API token
 - [ ] Retrieve user using Redis (not sure how to do this yet)
 
 **Jira Buckets** 
