@@ -8,13 +8,13 @@ import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/client/link/error';
 import Cookies from 'js-cookie';
 
+const token = Cookies.get('jwt');
+
 const httpLink = HttpLink({
   uri: 'http://localhost:4000',
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = Cookies.get('jwt');
-
   return {
     headers: {
       ...headers,

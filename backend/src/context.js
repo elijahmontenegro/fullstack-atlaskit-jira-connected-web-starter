@@ -3,7 +3,6 @@ const { resolver } = require('graphql-sequelize');
 const models = require('./models');
 const jwt = require('jsonwebtoken');
 const { jwt: config } = require('./config');
-const { requestNewAccessToken } = require('./services/atlassian');
 const { getMinutesUntilExpiration, getTimeExpires } = require('./services/time');
 const refresh = require('passport-oauth2-refresh');
 // const AtlassianStrategy = require('./strategy');
