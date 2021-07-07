@@ -12,6 +12,15 @@ const userProfile = gql`
   }
 `;
 
+const userAccessToken = gql`
+  query {
+    me {
+      accessToken
+    }
+  }
+`;
+
 export {
   userProfile,
+  userAccessToken
 }

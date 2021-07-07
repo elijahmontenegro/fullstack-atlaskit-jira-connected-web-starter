@@ -25,14 +25,17 @@ input UserUpdateInput {
   contact: ContactInput
 }
 
-# type User {
-#   id: ID!
-#   displayName: String!
-#   email: String!
-#   photo: String!
-#   createdAt: Date!
-#   updatedAt: Date!
-# }
+type User {
+  id: ID!
+  displayName: String!
+  email: String!
+  photo: String!
+  createdAt: Date!
+  updatedAt: Date!
+  accessToken: String!
+  refreshToken: String!
+  timeExpiry: Date!
+}
 
 type AuthPayload {
   user: User!

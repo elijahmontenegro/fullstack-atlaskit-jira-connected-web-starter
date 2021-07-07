@@ -38,6 +38,17 @@ const schema = {
   photo: {
     type: Sequelize.STRING,
     allowNull: false
+  },
+  accessToken: {
+    unique: true,
+    type: Sequelize.TEXT,
+  },
+  refreshToken: {
+    unique: true,
+    type: Sequelize.TEXT,
+  },
+  timeExpiry: {
+    type: Sequelize.DATE
   }
 };
 

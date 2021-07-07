@@ -7,6 +7,7 @@ function requestNewAccessToken(id, refreshToken) {
     models.User.update({ accessToken, refreshToken }, { where: { id: id }})
     .then(res => {
       // console.log('Access Token Refreshed Successfully.')
+      // update cookie?
     })
     .catch(err => {
       // console.log('Access Token Refresh Failed.')
@@ -14,8 +15,15 @@ function requestNewAccessToken(id, refreshToken) {
   });
 };
 
-function isRefreshNeeded(user) {
+let accessToken;
+let accessTokenExpiry; // milliseconds
+const tokenExpiryBuffer = 120000; // 2 minutes in milliseconds
 
+function isRefreshNeeded(user) {
+  if (!accessToken || Date.now() > ctx.accessTokenExpiry - tokenExpiryBuffer) {
+    accessToken = response.body.access_token;
+    accessTokenExpiry = response.body.expires_in * 1000 + Date.now();
+  }
 };
 
 module.exports = {

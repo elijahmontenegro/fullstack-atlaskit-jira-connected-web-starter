@@ -17,11 +17,3 @@ type Configuration {
   value: String!
 }
 
-type User {
-  id: ID!
-  displayName: String!
-  email: String!
-  photo: String!
-  createdAt: Date!
-  updatedAt: Date!
-}

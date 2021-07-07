@@ -16,7 +16,11 @@ const Card = styled.div`
 export const Profile = (props) => {
   const { data, loading, error } = useResource(profileResource)
 
-  if(error) return <p>Error…</p>;
+  if(error) {
+    console.error(error); 
+    return;
+  }
+
   if(loading) return <p>Loading…</p>;
 
   const user = data;

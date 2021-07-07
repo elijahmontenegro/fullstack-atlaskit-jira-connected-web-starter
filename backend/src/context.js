@@ -4,6 +4,9 @@ const models = require('./models');
 const jwt = require('jsonwebtoken');
 const { jwt: config } = require('./config');
 const { requestNewAccessToken } = require('./services/atlassian');
+const { getMinutesUntilExpiration, getTimeExpires } = require('./services/time');
+const refresh = require('passport-oauth2-refresh');
+// const AtlassianStrategy = require('./strategy');
 
 // Tell `graphql-sequelize` where to find the DataLoader context in the global
 // request context
@@ -28,13 +31,24 @@ module.exports = ({ request, ...rest }) => {
     });
 
     if (user) {
-      // // Refreshes the access token to retain the user OAuth 2.0 access
-      const refreshFn = (function fn() {
-        requestNewAccessToken(user.id, user.refreshToken)
-        return fn;
-      })();
-      // Interval every hour since the token expires in that amount of time
-      setInterval(refreshFn, 1.8e+6 );
+      const minutesUntilExpiration = getMinutesUntilExpiration(user.timeExpiry);
+
+      if (minutesUntilExpiration < 0) {
+        refresh.requestNewAccessToken('atlassian', user.refreshToken, async (err, accessToken, refreshToken, { expires_in }) => {
+          if (err)
+            console.error(err);
+
+          const timeExpires = getTimeExpires(expires_in);
+
+          models.User.update({ accessToken, refreshToken, timeExpires }, { where: { id: user.id }})
+            .then(res => {
+              console.log(`User (${user.id}) accessToken refreshed successfully!`);
+            })
+            .catch(err => {
+              console.error(err);
+            });
+        });
+      }
 
       // add context to graphql request
       ctx = Object.assign(ctx, { token, user });

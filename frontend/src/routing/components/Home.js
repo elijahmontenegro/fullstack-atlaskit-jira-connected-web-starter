@@ -25,6 +25,7 @@ const PageContent = styled.div`
 `;
 
 export const Home = (props) => {
+
   return (
     <Main>
       <Container>
