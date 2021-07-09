@@ -1,7 +1,7 @@
 const { rule, shield } = require('graphql-shield');
 
 const isAuthenticated = rule()((root, args, ctx) => {
-  return !!ctx.user || new Error('NOT_AUTHORIZED');
+  return !!ctx.user;
 });
 
 module.exports = shield({

@@ -26,12 +26,12 @@ const authLink = setContext((_, { headers }) => {
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {
     const signedIn = !graphQLErrors.some(
-      err => err.message === 'NOT_LOGGED_IN',
+      err => err.message === 'Not Authorised!',
     );
 
     if (!signedIn) {
       // redirect to unathorized page
-      window.location = ('/unauthorized');
+      // window.location.query = '?unauthorized=1';
     } else if (signedIn && !networkError) {
       graphQLErrors.map(({ message, locations, path }) =>
         console.error(

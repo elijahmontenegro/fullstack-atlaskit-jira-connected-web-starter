@@ -29,8 +29,8 @@ export const Home = (props) => {
   return (
     <Main>
       <Container>
-        <PageHeader>Hello World</PageHeader>
-        This is your public landing page.
+        <PageHeader>You're new here, aren't you?</PageHeader>
+        Not what you were expecting? Log-in to access more features.
       </Container>
     </Main>
   );

@@ -1,5 +1,5 @@
 const AtlassianStrategy = require('passport-atlassian-oauth2');
-const { atlassian: config } = require('../../config');
+const { atlassian: config, jwt } = require('../../config');
 const models = require('../../models');
 const { getTimeExpires } = require('../time');
 
@@ -9,11 +9,9 @@ module.exports = new AtlassianStrategy({
   callbackURL: config.callbackURL,
   scope: config.scope,
 }, async (accessToken, refreshToken, { expires_in }, profile, cb) => {
+  const cloudID = config.cloudID; // this is a constant hence not needed in the db so we inlcude it in the cookie for later access.
 
-  // include the Jira cloud Id along with the other user data
-  const cloudID = config.cloudID;
-
-  // include the expiry time for the accessToken for refreshing
+  // include the expiry time in user for refreshing the accessToken later
   const timeExpiry = getTimeExpires(expires_in);
 
   const user = {
@@ -33,9 +31,13 @@ module.exports = new AtlassianStrategy({
     defaults: user
   })
   .then(res => {
-    return cb(null, Object.assign(user, { cloudID }));
+    return cb(null, Object.assign(user, {
+      cloudID
+    }));
   })
   .catch(err => {
-    return cb(err, Object.assign(user, { cloudID }));
+    return cb(err, Object.assign(user, {
+      cloudID
+    }));
   })
 });
