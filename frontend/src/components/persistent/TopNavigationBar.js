@@ -7,13 +7,11 @@ import Profile from './Profile';
 const TopNavigationBar = (props) => {
   
   return (
-    <>
-      <AtlassianNavigation
-        theme={appTheme}
-        renderProductHome={ProductLogo}
-        renderProfile={Profile}
-      />
-    </>
+    <AtlassianNavigation
+      theme={appTheme}
+      renderProductHome={ProductLogo}
+      renderProfile={Profile}
+    />
   )
 };
 

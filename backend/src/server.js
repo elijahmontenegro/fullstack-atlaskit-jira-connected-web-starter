@@ -1,6 +1,5 @@
 const { GraphQLServer } = require('graphql-yoga');
 const cors = require('cors');
-
 const schema = require('./modules');
 const models = require('./models');
 const redis = require('./redis');
@@ -8,7 +7,7 @@ const context = require('./context');
 const passport = require('passport');
 const refresh = require('passport-oauth2-refresh');
 const { logging, permissions, authenticator } = require('./middlewares');
-const { AtlassianStrategy } = require('./services/atlassian');
+const AtlassianStrategy = require('./services/atlassian');
 const routes = require('./routes');
 
 const server = new GraphQLServer({
@@ -17,9 +16,6 @@ const server = new GraphQLServer({
 	middlewares: [logging, permissions]
 });
 
-// cors
-server.express.use(cors());
-
 // Dummy serialization/desiarialization
 passport.serializeUser((user, cb) => cb(null, user));
 passport.deserializeUser((obj, cb) => cb(null, obj));
@@ -27,14 +23,20 @@ passport.deserializeUser((obj, cb) => cb(null, obj));
 // initialize passport
 passport.use(AtlassianStrategy);
 refresh.use(AtlassianStrategy);
-server.express.use(passport.initialize());
-server.express.use(passport.session());
+server.use(passport.initialize());
+server.use(passport.session());
 
 // custom routes
-server.express.get('/auth/connect', authenticator.atlassian.redirect, () => {});
-server.express.get('/auth/callback', authenticator.atlassian.base, routes.login);
-server.express.get('/auth/logout', routes.logout);
-server.express.get('/error', routes.error);
+server.get('/auth/connect', authenticator.atlassian.redirect, () => {});
+server.get('/auth/callback', authenticator.atlassian.base, routes.login);
+server.get('/auth/logout', routes.logout);
+server.get('/error', routes.error);
+
+// cors
+server.use(cors({
+  origin: '*',
+  methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+}));
 
 module.exports = async () => {
   // db
@@ -50,7 +52,7 @@ module.exports = async () => {
     console.log("[REDIS] Connected to Redis server successfully.");
   });
 
-  const app = await server.start({ port: 4000 });
+  const app = await server.start({ port: process.env.APP_SERVER_PORT });
   console.log('[SERVER] Running on', app.address());
 
   return app;

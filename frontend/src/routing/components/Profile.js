@@ -5,7 +5,7 @@ import { useResource, Link } from 'react-resource-router';
 import { gql, useQuery } from '@apollo/react-hooks';
 import { LeftSidebarWithoutResize, Main } from '@atlaskit/page-layout';
 import styled from 'styled-components';
-import { Container } from '../../components/common';
+import { Page } from '../../components/common';
 import PageHeader from '@atlaskit/page-header';
 import { AtlassianLogo } from '@atlaskit/logo';
 
@@ -23,15 +23,11 @@ export const Profile = (props) => {
 
   if(loading) return <p>Loading…</p>;
 
-  const user = data;
-
   return (
-    <Main>
-      <Container>
-        <PageHeader children={user.displayName} />
-        <p>This data comes from Jira using Jira.JS and is fetched during render with React Resource Router.</p>
-      </Container>
-    </Main>
-  );
+    <Page route={props.route}>
+      <PageHeader children={data.displayName} />
+      <p>This data comes from Jira using Jira.JS and is fetched during render with React Resource Router.</p>
+    </Page>
+  )
 };
 

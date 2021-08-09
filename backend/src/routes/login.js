@@ -15,11 +15,12 @@ module.exports = async (req, res) => {
   //   // console.log('token verification:', err, decoded);
   // });
 
-  res.redirect(process.env.APP_CLIENT_URL);
+  // res.send(req.user.photo)
+  res.redirect(process.env.APP_CLIENT_REDIRECT_URL);
 };
 
 // res.cookie sends a cookie to the frontend once res.redirect is called
 // this is how the frontend can start a session with the logged in user
-// authentication with graphql has this token in jwt
+// authentication with   graphql has this token in jwt
 // the decrypted token is the user { ...profile, accessToken, refreshToken }
 

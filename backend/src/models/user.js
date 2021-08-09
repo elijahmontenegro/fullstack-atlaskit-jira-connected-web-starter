@@ -37,7 +37,7 @@ const schema = {
   },
   photo: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: true
   },
   accessToken: {
     unique: true,

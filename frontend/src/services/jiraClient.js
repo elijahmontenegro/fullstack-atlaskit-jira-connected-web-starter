@@ -29,6 +29,7 @@ class JiraClient extends Version2Client {
   async sendRequest(requestConfig, callback) {
     const accessToken = await apolloClient.query({ query: userAccessToken, context: ctx })
       .then(res => {
+        console.log(res.data);
         return res.data.me.accessToken;
       })
       .catch(err => {

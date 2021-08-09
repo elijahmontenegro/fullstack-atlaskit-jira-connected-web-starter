@@ -11,7 +11,7 @@ import Cookies from 'js-cookie';
 const token = Cookies.get('jwt');
 
 const httpLink = HttpLink({
-  uri: 'http://localhost:4000',
+  uri: 'http://localhost:4000'
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -30,8 +30,9 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
     );
 
     if (!signedIn) {
-      // redirect to unathorized page
-      // window.location.query = '?unauthorized=1';
+      // redirect to unathorized page 
+      // TODO: make unauthorized routes not render if no auth
+      // window.location.pathname !== '/home' && (window.location = '/home');
     } else if (signedIn && !networkError) {
       graphQLErrors.map(({ message, locations, path }) =>
         console.error(

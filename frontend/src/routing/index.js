@@ -17,11 +17,7 @@ export default Router = (props) => {
   return (
     <ResourceRouter routes={routes} history={history}>
       <Provider store={store}>
-        <CommonLayer>
-          <NavigationLayer>
-            <RouteComponent />
-          </NavigationLayer>
-        </CommonLayer>
+        <RouteComponent />
       </Provider>
     </ResourceRouter>
   );

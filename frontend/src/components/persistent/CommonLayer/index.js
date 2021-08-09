@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Spinner from '@atlaskit/spinner';
 import Modal, { ModalTransition } from '@atlaskit/modal-dialog';
+import ProgressContainer from './ProgressContainer';
 
 const CommonLayer = ({
   children: app,
@@ -24,6 +25,13 @@ const CommonLayer = ({
             )}
           />
         }
+        {props.isFirstTimeUser && 
+          <Modal
+            width="medium"
+            heading="Welcome Elijah Montenegro!"
+            // actions={firstTimeActions}
+          />
+        }
       </ModalTransition>
     </>
   )
@@ -31,6 +39,7 @@ const CommonLayer = ({
 
 const mapStateToProps = state => ({
   isRedirecting: state.navigation.isRedirecting,
+  // isFirstTimeUser: true,
   message: state.navigation.message
 });
 

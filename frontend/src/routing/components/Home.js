@@ -5,34 +5,23 @@ import { useResource, Link } from 'react-resource-router';
 import { gql, useQuery } from '@apollo/react-hooks';
 import { LeftSidebarWithoutResize, Main } from '@atlaskit/page-layout';
 import styled from 'styled-components';
-import { Container } from '../../components/common';
+import { Page } from '../../components/common';
 import PageHeader from '@atlaskit/page-header';
-
-const PageContent = styled.div`
-  align-items: flex-start;
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  margin: 0 auto;
-  padding: 0px 40px !important;
-  height: auto;
-  max-width: calc(100% - 40px);
-  min-width: calc(8.33333% - 40px);
-  width: 960px;
-  overflow-wrap: break-word;
-  flex-direction: column;
-  ${props => props.hidden && 'display: none;'}
-`;
+import EmptyState from '@atlaskit/empty-state';
 
 export const Home = (props) => {
 
   return (
-    <Main>
-      <Container>
-        <PageHeader>You're new here, aren't you?</PageHeader>
-        Not what you were expecting? Log-in to access more features.
-      </Container>
-    </Main>
+    <Page route={props.route}>
+      <EmptyState
+        header="You're new here, aren't you?"
+        description="Not what you were expecting? Log in to access more features."
+        imageUrl="/images/temp2.png"
+        // primaryAction={}
+        // secondaryAction={}
+        // tertiaryAction={}
+      />
+    </Page>
   );
 };
 

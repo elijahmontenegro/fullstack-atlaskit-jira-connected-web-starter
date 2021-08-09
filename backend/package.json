@@ -30,7 +30,10 @@
     "dev": "cross-env NODE_ENV=development nodemon -e js,gql -x node src/index.js"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.26.2",
+    "cors": "^2.8.5",
     "dataloader-sequelize": "^2.3.3",
     "dotenv": "^10.0.0",
     "graphql-relay": "^0.7.0",

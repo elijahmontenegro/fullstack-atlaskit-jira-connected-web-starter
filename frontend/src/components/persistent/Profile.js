@@ -28,35 +28,34 @@ const Profile = (props) => {
   const handleLogout = () => {
     props.logout()
   };
-
+  
+  console.log(user.photo)
   return (
-    <>
-      <Popup
-        placement="bottom-start"
-        isOpen={active}
-        onClose={() => setActive(false)}
-        trigger={triggerProps => (
-          <ProfileButton
-            icon={<ProfileIcon src={user.photo} />}
-            onClick={() => setActive(!active)}
-            isSelected={active}
-            tooltip="Your profile and settings"
-            {...triggerProps}
-          />
-        )}
-        content={() => (
-          <PopupMenuGroup minWidth={240} maxWidth={240}>
-            <Section title={user.displayName}>
-              <LinkItem href="/profile">Profile</LinkItem>
-              <LinkItem iconAfter={<ShortcutIcon size="small" primaryColor={colors.N100}/>} onClick={() => window.open('https://id.atlassian.com/manage-profile', '_blank')}>Account settings</LinkItem>
-            </Section>
-            <Section hasSeparator>
-              <LinkItem onClick={handleLogout}>Logout</LinkItem>
-            </Section>
-          </PopupMenuGroup>
-        )}
-      />
-    </>
+    <Popup
+      placement="bottom-start"
+      isOpen={active}
+      onClose={() => setActive(false)}
+      trigger={triggerProps => (
+        <ProfileButton
+          icon={<ProfileIcon src={user.photo} />}
+          onClick={() => setActive(!active)}
+          isSelected={active}
+          tooltip="Your profile and settings"
+          {...triggerProps}
+        />
+      )}
+      content={() => (
+        <PopupMenuGroup minWidth={240} maxWidth={240}>
+          <Section title={user.displayName}>
+            <LinkItem href="/profile">Profile</LinkItem>
+            <LinkItem iconAfter={<ShortcutIcon size="small" primaryColor={colors.N100}/>} onClick={() => window.open('https://id.atlassian.com/manage-profile', '_blank')}>Account settings</LinkItem>
+          </Section>
+          <Section hasSeparator>
+            <LinkItem onClick={handleLogout}>Logout</LinkItem>
+          </Section>
+        </PopupMenuGroup>
+      )}
+    />
   )
 };
 

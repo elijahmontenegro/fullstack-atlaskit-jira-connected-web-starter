@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 const userProfile = gql`
   query {
     me {
+      id
       displayName
       photo
       email
@@ -15,6 +16,7 @@ const userProfile = gql`
 const userAccessToken = gql`
   query {
     me {
+      id
       accessToken
     }
   }
@@ -23,4 +25,4 @@ const userAccessToken = gql`
 export {
   userProfile,
   userAccessToken
-}
+}   
